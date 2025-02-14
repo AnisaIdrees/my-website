@@ -36,16 +36,18 @@
           <ul id="menuList">
             <li><a href="">Home</a></li>
             <li><a href="">About us</a></li>
-            <li><a href="">Menu</a></li>
             <li><a href="">Blogs</a></li>
-            <li><a href="">Error</a></li>
+            <li><a href="">Testimonials</a></li>
             <li><a href="">Recipe</a></li>
             <li><a href="">Contact us</a></li>
           </ul>
         </nav>
-        <div class="login-sec" id="login-Sign-Btns">
-          <a href=""><button class="login-sign-btn">login</button></a>
-          <a href=""><button class="login-sign-btn btn-2">sign up</button></a>
+        <div class="login-sec">
+
+          <a href="" class="login-sign-btn"><button class="login-btn">login</button></a>
+
+          <a href="" class="login-sign-btn"><button class="profile-btn">proflie</button></a>
+
         </div>
         <i class="ri-menu-3-line" id="menuIcon"></i>
       </div>
@@ -354,7 +356,7 @@
 
   <!-- review section -->
   <div class="container-xxl review-container">
-    <img src="./images/pairing_tomato-removebg-preview.png" alt=""width="100px"height="100px"id="pairing-tomato">
+    <img src="./images/pairing_tomato-removebg-preview.png" alt="" width="100px" height="100px" id="pairing-tomato">
     <div class="review-image-box">
       <img src="./images/young-home-beautiful-food-cooking.jpg" alt="lady-chef">
     </div>
@@ -363,7 +365,8 @@
       <div class="swiper Review-mySwiper">
         <p class="text-center " style="font-size :20px; font-weight :600; color:#fc710d;">Testimonials <i
             class="ri-restaurant-line"></i></p>
-        <p class="text-center mt-0 mb-4" style="font-size :37px; font-weight :900; color:white;">What our Clients Say</p>
+        <p class="text-center mt-0 mb-4" style="font-size :37px; font-weight :900; color:white;">What our Clients Say
+        </p>
 
         <div class="swiper-wrapper">
           <!-- Card 1 -->
@@ -444,25 +447,82 @@
             </div>
           </div>
         </div>
-
       </div>
     </div>
   </div>
-
-
-
-  <div class="text-slider-container">
-    <div class="swiper textSwiper">
-        <div class="swiper-wrapper" id="text-slider">
-        </div>
+  <!-- text slider -->
+  <section class="container-xxl text-slider-container">
+    <div class="slider-wrapper">
+      <div class="slider">
+        <div class="slide">FAST FOOD</div>
+        <div class="slide">Chicken Burgur</div>
+        <div class="slide">Pizza</div>
+        <div class="slide">Biryani</div>
+        <div class="slide">Chicken Burgur</div>
+        <div class="slide">FAST FOOD</div>
+        <div class="slide">Chicken Burgur</div>
+        <div class="slide">FAST FOOD</div>
+        <div class="slide">Pizza</div>
+        <div class="slide">FAST FOOD</div>
+        <div class="slide">Pizza</div>
+        <div class="slide">FAST FOOD</div>
+        <div class="slide">Pizza</div>
+        <div class="slide">FAST FOOD</div>
+        <div class="slide">Biryani</div>
+        <div class="slide">Chicken Burgur</div>
+        <div class="slide">FAST FOOD</div>
+        <div class="slide">Biryani</div>
+        <div class="slide">FAST FOOD</div>
+        <div class="slide">FAST FOOD</div>
+        <div class="slide">Biryani</div>
+        <div class="slide">FAST FOOD</div>
+        <div class="slide">FAST FOOD</div>
+        <div class="slide">Biryani</div>
+        <div class="slide">Chicken Burgur</div>
+        <div class="slide">FAST FOOD</div>
+        <div class="slide">Biryani</div>
+        <div class="slide">FAST FOOD</div>
+        <div class="slide">FAST FOOD</div>
+        <div class="slide">Biryani</div>
+        <div class="slide">Chicken Burgur</div>
+        <div class="slide">FAST FOOD</div>
+        <div class="slide">Biryani</div>
+      </div>
     </div>
-</div>
-
-
-  
+  </section>
   <!-- review section  close -->
 
+  <!-- meet our chef -->
+  <div class="container-xxl meet-chef-container ">
 
+    <p class="text-center pt-5" style="font-size :20px; font-weight :600; color:#fc710d;text-transform: uppercase;">
+      Our Chefe <i class="ri-restaurant-line"></i></p>
+    <p class="text-center fs-2 fw-bold p-0" style="font-weight:900;font-size: 40px;">Meet Our Expert Chefe</p>
+
+    <div class="chefs-container">
+      <div class="container">
+        <div class="card">
+          <img
+            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRl1OowXTnvZ6PAg-MeCP9UwmkVVJHg09_qjnkx5TIC_gz449-UNbynOJOkkaYbPMh6Vkk&usqp=CAU"
+            alt="Chef 1">
+          <h3>Chef Ayesha</h3>
+          <p>Expert in Italian Cuisine</p>
+        </div>
+        <div class="card">
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTxGdnbES7AhObT-98sXWG6Tfslj2wx1xWJig&s"
+            alt="Chef 2">
+          <h3>Chef Ahmed</h3>
+          <p>Master of French Pastries</p>
+        </div>
+        <div class="card">
+          <img src="https://t3.ftcdn.net/jpg/06/84/89/16/360_F_684891651_PfKHyNo3VG1nNkHFbJQGFo8TGvnCL6L2.jpg" alt="Chef 3">
+          <h3>Chef Ali</h3>
+          <p>Specialist in Japanese Sushi</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- meet our chef close  -->
 
 
 
@@ -498,7 +558,7 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"
     integrity="sha512-onMTRKJBKz8M1TnqqDuGBlowlH0ohFzMXYRNebz+yOcc5TQr/zAKsthzhuv0hiyUKEiQEQXEynnXCvNTOk50dg=="
     crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-  <script src="./asset/app.js"></script>
+  <script src="./asset/javaScript/Libraries.js"></script>
 </body>
 
 </html>

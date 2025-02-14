@@ -1,13 +1,11 @@
 //  cursor
 const cursor = document.querySelector(".cursor");
 const cursorTrail = document.querySelector(".cursor-trail");
-
 // Smooth follow effect using GSAP
 document.addEventListener("mousemove", (e) => {
     gsap.to(cursor, { x: e.clientX, y: e.clientY, duration: 0.1, ease: "power2.out" });
     gsap.to(cursorTrail, { x: e.clientX, y: e.clientY, duration: 0.3, ease: "power3.out" });
 });
-
 // Click Animation
 document.addEventListener("click", () => {
     gsap.to(cursor, { scale: 1.5, duration: 0.1, ease: "power2.out", yoyo: true, repeat: 1 });
@@ -48,12 +46,13 @@ tl.from('nav li', {
   opacity: 0,
   stagger: 0.3,
 })
-tl.from('.login-sec button', {
+tl.from('.login-sec .login-sign-btn', {
   y: -30,
   duration: 0.6,
   opacity: 0,
   stagger: 0.2,
 });
+
 ////////////////////////
 
 // swiper card slider
@@ -135,7 +134,24 @@ var swiper = new Swiper(".Review-mySwiper", {
 
 
 
-
+let index = 0;
+        const slides = document.querySelectorAll('.slide');
+        const slideContainer = document.getElementById('slideContainer');
+        
+        function showSlide(i) {
+            index = (i + slides.length) % slides.length;
+            slideContainer.style.transform = `translateX(${-index * 100}%)`;
+        }
+        
+        function nextSlide() {
+            showSlide(index + 1);
+        }
+        
+        function prevSlide() {
+            showSlide(index - 1);
+        }
+        
+        setInterval(nextSlide, 3000);
 
 
 // /////////////////////// gsap hero section;;;

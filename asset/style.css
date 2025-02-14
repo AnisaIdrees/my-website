@@ -8,10 +8,6 @@
 }
 
 /* cursor */
-body {
-    background-color: #0d0d0d;
-}
-
 .cursor,
 .cursor-trail {
     position: fixed;
@@ -59,7 +55,7 @@ header {
     position: relative;
     top: 0;
     left: 0;
-    z-index: 99;
+    z-index: 999;
 }
 
 .nav-container {
@@ -107,7 +103,8 @@ nav a:hover {
     transition: all .5s linear;
 }
 
-.login-sec .login-sign-btn {
+.login-sec .login-btn,
+.profile-btn {
     padding: 7px 15px;
     border-radius: 5px;
     font-weight: 600;
@@ -116,12 +113,19 @@ nav a:hover {
     color: white;
     text-transform: capitalize;
     border: none;
-    /* margin-left: 10px; */
-    margin-right: 10px;
+    margin-right: 7px;
     gap: 0;
 }
 
-.login-sec .login-sign-btn:hover {
+
+.login-sec .login-btn:hover {
+    border: 1px solid #eb0029;
+    background-color: white;
+    color: #eb0029;
+    transition: .5s linear;
+}
+
+.login-sec .profile-btn:hover {
     border: 1px solid #eb0029;
     background-color: white;
     color: #eb0029;
@@ -208,7 +212,8 @@ nav a:hover {
         color: white;
     }
 
-    .login-sec .login-sign-btn {
+    .login-sec .login-btn,
+    .profile-btn {
         padding: 8px 13px;
         border-radius: 5px;
         font-weight: 500;
@@ -1008,13 +1013,16 @@ nav a:hover {
 }
 
 .logo-swiper {
-    width: 90%;
+    width: 80%;
     padding: 20px 0;
     overflow: hidden;
 
 }
 
 .logo-swiper-slide {
+    width: 80%;
+    overflow: hidden;
+
     display: flex;
     justify-content: center;
     align-items: center;
@@ -1033,9 +1041,10 @@ nav a:hover {
 
 
 .review-container {
+    padding-top: 20px;
     display: flex;
     width: 100%;
-    background: rgba(0, 0, 0, 0.932);
+    background:rgba(0, 0, 0, 0.945);
     color: white;
     overflow: hidden;
     padding-top: 40px;
@@ -1108,7 +1117,7 @@ nav a:hover {
 }
 
 #pairing-tomato {
-    filter: blur(0.7px);
+    filter: blur(1px);
     transition: filter 0.5s ease-in-out;
     position: absolute;
     right: 10px;
@@ -1143,27 +1152,153 @@ nav a:hover {
 
 
 
-.text-slider-container {
-    width: 100%;
-    background-color: #fc710d;
-    padding: 10px 0;
-    overflow: hidden;
-}
-
-.text-slide {
-    font-size: 24px;
-    font-weight: bold;
-    color: white;
-    text-align: center;
-    transition: color 0.3s ease-in-out;
-    cursor: pointer;
-}
-
-.text-slide:hover {
-    color: yellow;
-}
 
 /* review section close //////////////////////////*/
 
+section {
+    width: 100%;
+    height: 40vh;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    white-space: nowrap;
+    background: hsla(0, 0%, 0%, 0.945);
+    position: relative;
+}
 
+.slider {
+    display: flex;
+    gap: 20px;
+    animation: slide 38s linear infinite;
+    width: max-content;
+}
 
+.slide {
+    font-size: 60px;
+    font-weight: 900;
+    padding: 0 30px;
+    transition: color 0.3s ease-in-out, transform 0.3s ease-in-out;
+    cursor: pointer;
+    position: relative;
+}
+
+.slide:hover {
+    color: red;
+    transform: scale(1.1);
+}
+
+.slide::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: -5px;
+    width: 0;
+    height: 3px;
+    background: red;
+    border-radius: 2px;
+    transition: width 0.4s ease-in-out, left 0.4s ease-in-out;
+}
+
+.slide:hover::after {
+    width: 100%;
+    left: 0;
+}
+
+@keyframes slide {
+    from {
+        transform: translateX(0);
+    }
+
+    to {
+        transform: translateX(-50%);
+    }
+}
+
+.slider-wrapper {
+    display: flex;
+    width: max-content;
+}
+
+/* meet our cheff ////////////////////////////////////////////////////////*/
+.meet-chef-container {
+    background-color: #F4F1EA;
+
+}
+
+.chefs-container {
+    max-width: 1000px;
+    width: 100%;
+    text-align: center;
+    margin: 0 auto;
+    margin-top: 20px;
+
+}
+
+.chefs-container h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.container {
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.card {
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    padding: 20px;
+    width: 100%;
+    max-width: 300px;
+    transition: 0.3s;
+    position: relative;
+    overflow: hidden;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+.card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+.card h3 {
+    margin-top: 10px;
+    font-size: 20px;
+    color: #333;
+}
+
+.card p {
+    font-size: 14px;
+    color: #777;
+    margin-top: 5px;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+}
+
+.card:hover p {
+    opacity: 1;
+}
+
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .card {
+        width: 90%;
+        max-width: 350px;
+    }
+}

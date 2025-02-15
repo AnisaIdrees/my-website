@@ -1,15 +1,22 @@
 //  cursor
 const cursor = document.querySelector(".cursor");
 const cursorTrail = document.querySelector(".cursor-trail");
+
+
+
+
 // Smooth follow effect using GSAP
 document.addEventListener("mousemove", (e) => {
-    gsap.to(cursor, { x: e.clientX, y: e.clientY, duration: 0.1, ease: "power2.out" });
-    gsap.to(cursorTrail, { x: e.clientX, y: e.clientY, duration: 0.3, ease: "power3.out" });
+  gsap.to(cursor, { x: e.clientX, y: e.clientY, duration: 0.1, ease: "power2.out" });
+  gsap.to(cursorTrail, { x: e.clientX, y: e.clientY, duration: 0.3, ease: "power3.out" });
 });
+
+
+
 // Click Animation
 document.addEventListener("click", () => {
-    gsap.to(cursor, { scale: 1.5, duration: 0.1, ease: "power2.out", yoyo: true, repeat: 1 });
-    gsap.to(cursorTrail, { scale: 2, duration: 0.3, opacity: 0, ease: "power2.out", yoyo: true, repeat: 1 });
+  gsap.to(cursor, { scale: 1.5, duration: 0.1, ease: "power2.out", yoyo: true, repeat: 1 });
+  gsap.to(cursorTrail, { scale: 2, duration: 0.3, opacity: 0, ease: "power2.out", yoyo: true, repeat: 1 });
 });
 
 
@@ -18,8 +25,6 @@ document.addEventListener("click", () => {
 /////////   toggle button   /////////////
 const menuIcon = document.getElementById('menuIcon');
 const menuList = document.getElementById('menuList');
-
-
 
 menuIcon.addEventListener('click', () => {
   if (menuList.style.maxHeight === '0px' || menuList.style.maxHeight === '') {
@@ -31,6 +36,9 @@ menuIcon.addEventListener('click', () => {
     menuList.style.maxHeight = '0px';
   }
 });
+
+
+
 
 // gsap nav items animation
 let tl = gsap.timeline()
@@ -55,6 +63,9 @@ tl.from('.login-sec .login-sign-btn', {
 
 ////////////////////////
 
+
+
+
 // swiper card slider
 document.addEventListener('DOMContentLoaded', function () {
   new Swiper('.mySwiper', {
@@ -69,9 +80,9 @@ document.addEventListener('DOMContentLoaded', function () {
       prevEl: '.swiper-button-prev',
     },
     autoplay: {
-      delay: 3000, // Smallest delay for continuous movement
+      delay: 3000,
       disableOnInteraction: false,
-  },
+    },
     pagination: {
       el: '.swiper-pagination',
       clickable: true,
@@ -96,64 +107,69 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 // swiper card slider close////////////
 
+
+
+
+
 // logo swiper slider
 var swiper = new Swiper(".logo-swiper", {
   slidesPerView: 7,
   spaceBetween: 15,
   loop: true,
-  speed: 3000, // Smooth transition speed
+  speed: 3000, 
   autoplay: {
-      delay: 1, // Smallest delay for continuous movement
-      disableOnInteraction: false,
+    delay: 1,
+    disableOnInteraction: false,
   },
   breakpoints: {
     320: { slidesPerView: 2, spaceBetween: 10 },
     480: { slidesPerView: 3, spaceBetween: 15 },
     768: { slidesPerView: 4, spaceBetween: 20 },
     1024: { slidesPerView: 7, spaceBetween: 20 }
-}
+  }
 });
 // logo swiper slider close
 
 
 
 var swiper = new Swiper(".Review-mySwiper", {
-  slidesPerView: 1,  
+  slidesPerView: 1,
   spaceBetween: 20,
-  loop: true, 
+  loop: true,
   navigation: {
-      nextEl: ".swiper-button-next",
-      prevEl: ".swiper-button-prev",
+    nextEl: ".swiper-button-next",
+    prevEl: ".swiper-button-prev",
   },
- 
+
   autoplay: {
-      delay: 2000, 
-      disableOnInteraction: false,
+    delay: 2000,
+    disableOnInteraction: false,
   },
 });
 
 
 
-let index = 0;
-        const slides = document.querySelectorAll('.slide');
-        const slideContainer = document.getElementById('slideContainer');
-        
-        function showSlide(i) {
-            index = (i + slides.length) % slides.length;
-            slideContainer.style.transform = `translateX(${-index * 100}%)`;
-        }
-        
-        function nextSlide() {
-            showSlide(index + 1);
-        }
-        
-        function prevSlide() {
-            showSlide(index - 1);
-        }
-        
-        setInterval(nextSlide, 3000);
 
-
+//food images slider
+var swiper = new Swiper(".food-swiper", {
+  slidesPerView: 7,  // Default: Mobile
+  speed: 3000, // Smooth transition speed
+  spaceBetween: 10,
+  loop: true,  // Looping enabled
+  autoplay: {
+    delay: 1,  // Slide change every 2 seconds
+    disableOnInteraction: false // Auto-play continues even after user interaction
+  },
+  breakpoints: {
+    576: { slidesPerView: 2, spaceBetween: 20 },
+    340: { slidesPerView: 2, spaceBetween: 20 },
+    320: { slidesPerView: 1, spaceBetween: 20 },
+    768: { slidesPerView: 3, spaceBetween: 30 },
+    1024: { slidesPerView: 5, spaceBetween: 10 },
+    526: { slidesPerView: 2, spaceBetween: 10 },
+    710: { slidesPerView: 3, spaceBetween: 10 },
+  }
+});
 // /////////////////////// gsap hero section;;;
 // gsap.from('.child',{
 //   stagger:0.4

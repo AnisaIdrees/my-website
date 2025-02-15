@@ -1044,7 +1044,7 @@ nav a:hover {
     padding-top: 20px;
     display: flex;
     width: 100%;
-    background:rgba(0, 0, 0, 0.945);
+    background: rgba(0, 0, 0, 0.945);
     color: white;
     overflow: hidden;
     padding-top: 40px;
@@ -1191,9 +1191,9 @@ section {
     content: '';
     position: absolute;
     left: 50%;
-    bottom: -5px;
+    bottom: -2px;
     width: 0;
-    height: 3px;
+    height: 2px;
     background: red;
     border-radius: 2px;
     transition: width 0.4s ease-in-out, left 0.4s ease-in-out;
@@ -1221,8 +1221,19 @@ section {
 
 /* meet our cheff ////////////////////////////////////////////////////////*/
 .meet-chef-container {
-    background-color: #F4F1EA;
+    background-color: #F4F1EA;position: relative;  /* Added */
+    padding-top: 100px;  /* Adjust this value if needed */
 
+}
+
+#pizza-victizy {
+    width: 160px;
+    position: absolute;
+    top: 50px; /* Adjust this value to move it inside */
+    left: 2%; /* Center horizontally */transform: translateX(-50%); /* Perfect centering */
+    z-index: 2; /* Ensure it's above other elements */
+    transition: filter 0.5s ease-in-out;
+    animation: moveTomato 2s infinite alternate ease-in-out;
 }
 
 .chefs-container {
@@ -1240,7 +1251,7 @@ section {
     color: #333;
 }
 
-.container {
+.chef-wrapper-container {
     justify-content: center;
     align-items: center;
     display: flex;
@@ -1248,7 +1259,7 @@ section {
     flex-wrap: wrap;
 }
 
-.card {
+.chefe-card {
     background: white;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -1261,11 +1272,12 @@ section {
     overflow: hidden;
 }
 
-.card:hover {
+.chefe-card:hover {
     transform: translateY(-5px);
+    cursor: pointer;
 }
 
-.card img {
+.chefe-card img {
     width: 100%;
     height: 200px;
     object-fit: cover;
@@ -1273,13 +1285,13 @@ section {
     border-top-right-radius: 10px;
 }
 
-.card h3 {
+.chefe-card h3 {
     margin-top: 10px;
     font-size: 20px;
     color: #333;
 }
 
-.card p {
+.chefe-card p {
     font-size: 14px;
     color: #777;
     margin-top: 5px;
@@ -1287,7 +1299,7 @@ section {
     transition: opacity 0.3s ease-in-out;
 }
 
-.card:hover p {
+.chefe-card:hover p {
     opacity: 1;
 }
 
@@ -1297,8 +1309,50 @@ section {
         align-items: center;
     }
 
-    .card {
+    .chefe-card {
         width: 90%;
         max-width: 350px;
     }
+}
+
+/* food images slider ////////////////////*/
+.food-images-container {
+    padding-top: 15%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #F4F1EA;
+}
+
+.food-swiper {
+    width: 100%;
+}
+
+.food-swiper-slide img {
+    width: 230px;
+    height: 210px;
+
+}
+
+.food-swiper-slide img :hover {
+    transform: scale(1.5);
+}
+
+.food-swiper-slide {
+    transition: transform 0.3s ease-in-out;
+}
+
+/* ////////////////////// footer///////////////////// */
+.footer{
+    padding-top: 5%;
+    width: 100%;
+    height: 100vh;
+    background-color: black;
+}
+.orange-info-box{
+    margin: 0 auto;
+    width: 80%;
+    height: 170px;
+    background-color: #fa6901;
+    border-radius: 10px;
 }

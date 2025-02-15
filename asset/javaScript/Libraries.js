@@ -162,7 +162,7 @@ var swiper = new Swiper(".food-swiper", {
   },
   breakpoints: {
     576: { slidesPerView: 2, spaceBetween: 20 },
-    340: { slidesPerView: 2, spaceBetween: 20 },
+    340: { slidesPerView: 1, spaceBetween: 10 },
     320: { slidesPerView: 1, spaceBetween: 20 },
     768: { slidesPerView: 3, spaceBetween: 30 },
     1024: { slidesPerView: 5, spaceBetween: 10 },
@@ -170,6 +170,25 @@ var swiper = new Swiper(".food-swiper", {
     710: { slidesPerView: 3, spaceBetween: 10 },
   }
 });
+
+
+// // back to to button
+const backToTopButton = document.getElementById("customBackToTop");
+
+    window.addEventListener("scroll", () => {
+        if (window.scrollY > 300) {
+            backToTopButton.style.display = "block";
+        } else {
+            backToTopButton.style.display = "none";
+        }
+    });
+
+    backToTopButton.addEventListener("click", () => {
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth"
+        });
+    });
 // /////////////////////// gsap hero section;;;
 // gsap.from('.child',{
 //   stagger:0.4

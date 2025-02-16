@@ -172,7 +172,7 @@ var swiper = new Swiper(".food-swiper", {
 });
 
 
-// // back to to button
+// // back to top button
 const backToTopButton = document.getElementById("customBackToTop");
 
     window.addEventListener("scroll", () => {

@@ -152,13 +152,13 @@ var swiper = new Swiper(".Review-mySwiper", {
 
 //food images slider
 var swiper = new Swiper(".food-swiper", {
-  slidesPerView: 7,  // Default: Mobile
-  speed: 3000, // Smooth transition speed
+  slidesPerView: 7, 
+  speed: 3000, 
   spaceBetween: 10,
-  loop: true,  // Looping enabled
+  loop: true, 
   autoplay: {
-    delay: 1,  // Slide change every 2 seconds
-    disableOnInteraction: false // Auto-play continues even after user interaction
+    delay: 1,  
+    disableOnInteraction: false
   },
   breakpoints: {
     576: { slidesPerView: 2, spaceBetween: 20 },
@@ -189,33 +189,22 @@ const backToTopButton = document.getElementById("customBackToTop");
             behavior: "smooth"
         });
     });
-// /////////////////////// gsap hero section;;;
-// gsap.from('.child',{
-//   stagger:0.4
-// })
 
-// gsap.from('.child .text', {
-//   x: -100,
-//   stagger: 0.2,
-//   duration: 2,
-// })
-// gsap.from('.child img', {
-//   x: 100,
-//   stagger: 0.2,
-//   duration: 2,
-// })
-// gsap.to(' #single-tomato-slice',{
-//   x:500,
-//   duration:8,
-//   rotate:'360deg',
-//   repeat:-1,
-//   yoyo:true,
-// });
 
-// gsap.to('#tomato',{
-//   x:40,
-//   duration:3,
-//   repeat:-1,
-//   yoyo:true
-// })
+
+// /////////////////////// gsap hero section /////////////////////////////////////////////////////;;;
+gsap.to(' #single-tomato-slice',{
+  x:500,
+  duration:8,
+  rotate:'360deg',
+  repeat:-1,
+  yoyo:true,
+});
+
+gsap.to('#tomato',{
+  x:40,
+  duration:3,
+  repeat:-1,
+  yoyo:true
+})
 

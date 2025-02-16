@@ -236,9 +236,9 @@ nav a:hover {
 /* ///////////////////////////// hero section /////////////////////////////////////*/
 
 .hero-section {
-    /* width: 100%; */
+    width: 100%;
     height: 100vh;
-    background-image: url(.);
+    background-image: url(../images/spark\ img.jpg);
     background-repeat: no-repeat;
     background-size: cover;
     position: relative;
@@ -339,7 +339,7 @@ nav a:hover {
 
     .hero-section {
         height: 110vh;
-        background-image: url(../images/background\ image.jpg);
+        background-image: url(../images/spark\ img.jpg);
         background-repeat: no-repeat;
         background-size: cover;
         position: relative;
@@ -570,7 +570,6 @@ nav a:hover {
     background-color: #F4F1EA;
     position: relative;
     padding-bottom: 20px;
-    /* border-bottom: 1px dashed #fc710d; */
 }
 
 .child2 {
@@ -661,6 +660,23 @@ nav a:hover {
         gap: 50px;
     }
 
+
+}
+@media(min-width:1326px){
+    .hero-sec-2-pizza {
+        width: 100%;
+        height: 100%;
+        background-color: #F4F1EA;
+        position: relative;
+        padding-bottom: 20px;
+        padding-top: 7%;
+        padding-bottom: 5%;
+    }
+    .image #pizza-platter {
+        margin-top: 20px;
+        width: 650px;
+        float: left;
+    }
 
 }
 
@@ -1010,6 +1026,8 @@ nav a:hover {
     height: 30vh;
     background: #F4F1EA;
     padding-bottom: 60px;
+    width: 100%;
+    overflow: hidden;
 }
 
 .logo-swiper {
@@ -1180,6 +1198,7 @@ section {
     transition: color 0.3s ease-in-out, transform 0.3s ease-in-out;
     cursor: pointer;
     position: relative;
+    color:rgba(122, 122, 122, 0.904);
 }
 
 .slide:hover {
@@ -1233,13 +1252,9 @@ section {
     width: 160px;
     position: absolute;
     top: 50px;
-    /* Adjust this value to move it inside */
     left: 2%;
-    /* Center horizontally */
     transform: translateX(-50%);
-    /* Perfect centering */
     z-index: 2;
-    /* Ensure it's above other elements */
     transition: filter 0.5s ease-in-out;
     animation: moveTomato 2s infinite alternate ease-in-out;
 }
@@ -1325,7 +1340,7 @@ section {
 
 /* food images slider ////////////////////*/
 .food-images-container {
-    padding-top: 15%;
+    padding-top: 100px;
     display: flex;
     justify-content: center;
     align-items: center;

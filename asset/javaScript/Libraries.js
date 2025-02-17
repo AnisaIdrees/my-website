@@ -194,7 +194,7 @@ const backToTopButton = document.getElementById("customBackToTop");
 
 // /////////////////////// gsap hero section /////////////////////////////////////////////////////;;;
 gsap.to(' #single-tomato-slice',{
-  x:500,
+  x:350,
   duration:8,
   rotate:'360deg',
   repeat:-1,

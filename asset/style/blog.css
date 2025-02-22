@@ -243,14 +243,13 @@ nav a:hover {
 /* card main container////////////////////////////////////////// */
 .cards-container{
     width:80% !important;
-
     padding-top: 20px;
     justify-content: center;
     align-items: center;
     width: 100%;
-    background-color:;
+    background-color:#F4F1EA;
     flex-wrap: wrap;
-    gap: 10px;
+    gap: 28px;
     padding: 20px 20px;
 }
 .card-text i{

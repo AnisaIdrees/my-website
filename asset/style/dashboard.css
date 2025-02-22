@@ -132,8 +132,8 @@ header {
   background-color:#fa4f00;
   cursor: pointer;
 }
-.searchbtn i{
-  font-size: 60px;
+.searchbtn img{
+  width:  50px;
 }
 .message {
   gap: 40px;
@@ -276,7 +276,7 @@ header {
   height: 130px;
   width: 230px;
   border-radius: 20px;
-  box-shadow: 3px 3px 10px rgba(0, 30, 87, 0.751);
+  box-shadow: 3px 3px 10px #fa4f00c5;
   padding: 20px;
   display: flex;
   align-items: center;
@@ -324,7 +324,7 @@ header {
   margin: 70px auto 0px auto;
   background-color: #ffffff;
   border-radius: 30px;
-  box-shadow: 3px 3px 10px rgb(188, 188, 188);
+  box-shadow: 3px 3px 10px rgba(238, 139, 59, 0.87);
   padding: 0px 20px 20px 20px;
 }
 .report-header {
@@ -334,20 +334,20 @@ header {
   align-items: center;
   justify-content: space-between;
   padding: 20px 20px 10px 20px;
-  border-bottom: 2px solid rgba(0, 20, 151, 0.59);
+  border-bottom: 2px solid #fa4f00;
 }
 
 .recent-Articles {
   font-size: 30px;
   font-weight: 600;
-  color: #5500cb;
+  color:#fa4f00;
 }
 
 .view {
   height: 35px;
   width: 90px;
   border-radius: 8px;
-  background-color: #5500cb;
+  background-color:#fa4f00;
   color: white;
   font-size: 15px;
   border: none;
@@ -456,10 +456,10 @@ header {
       width: 250px;
       height: 42px;
       border-radius: 50px 0 0 50px;
-      background-color: var(--background-color3);
+      /* background-color: var(--backg; */
       padding: 0 20px;
       font-size: 15px;
-      border: 2px solid var(--secondary-color);
+      /* border: 2px solid var(--secondary-color); */
     }
   }
   
@@ -512,9 +512,9 @@ header {
       height: 60px;
       padding: 10px 10px 5px 10px;
     }
-    .searchbtn img {
+    /* .searchbtn img {
       height: 20px;
-    }
+    } */
   }
   
   @media screen and (max-width: 320px) {

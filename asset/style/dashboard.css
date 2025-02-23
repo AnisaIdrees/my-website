@@ -356,9 +356,10 @@ header {
 
 .report-body {
   max-width: 1160px;
-  overflow-x: auto;
+  overflow-x: scroll;
   padding: 20px;
 }
+
 .report-topic-heading,
 .item1 {
   width: 1120px;

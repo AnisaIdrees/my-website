@@ -6,7 +6,11 @@ import {
     signInWithPopup,
     signOut,
     onAuthStateChanged,
-    sendPasswordResetEmail 
+    sendPasswordResetEmail,
+    db,
+    doc,
+    setDoc,
+    getDoc,
 } from "./firebase.configure.js"
 
 
@@ -22,23 +26,81 @@ const register = async (ele) => {
     const password = document.getElementById('password').value;
     console.log(email, password);
 
+    const adminRef = doc(db, "admins", "adminInfo"); // Ek fixed document
+    const adminDoc = await getDoc(adminRef);
+    // try {
+    //     let userCredintial = await createUserWithEmailAndPassword(
+    //         auth,
+    //         email,
+    //         password);
+    //     let userInfo = userCredintial?.user
+    //     console.log(userInfo.uid);
+    //     await setDoc(adminRef, {   
+    //         uid: user.uid,
+    //         email,
+    //         role: "admin",
+    //     });
+
+    //     console.log("✅ Admin Registered:", userInfo.uid);
+        
+    // window.location.replace("/" );
+
+    //     Swal.fire({
+    //         title: "🎉 Sign-Up Successful!",
+    //         text: "Welcome " + email,
+    //         icon: "success",
+    //         confirmButtonText: "OK",
+    //     });
+    //     window.location.href = "admin-dashboard.html";
+    // }
+    // catch (error) {
+    //     console.log(error.message);
+    //     Swal.fire({
+    //         title: "❌ Error!",
+    //         text: error.message,
+    //         icon: "error",
+    //         confirmButtonText: "Try Again",
+    //     });
+    // }
+
+
     try {
-        let userCredintial = await createUserWithEmailAndPassword(
-            auth,
+        // 🔍 Pehle check karo ke koi admin already exist to nahi karta
+        const adminRef = doc(db, "admins", "adminInfo"); // Ek fixed document
+        const adminDoc = await getDoc(adminRef);
+
+        if (adminDoc.exists()) {
+            Swal.fire({
+                title: "❌ Admin Already Exists!",
+                text: "Only one admin is allowed.",
+                icon: "error",
+                confirmButtonText: "OK",
+            });
+            return;
+        }
+
+        // ✅ Admin create karo agar pehle koi nahi hai
+        let userCredential = await createUserWithEmailAndPassword(auth, email, password);
+        let user = userCredential.user;
+
+        await setDoc(adminRef, {   
+            uid: user.uid,
             email,
-            password);
-        let userInfo = userCredintial?.user
-        console.log(userInfo.uid);
+            role: "admin",
+        });
+
+        console.log("✅ Admin Registered:", user.uid);
 
         Swal.fire({
-            title: "🎉 Sign-Up Successful!",
+            title: "🎉 Admin Sign-Up Successful!",
             text: "Welcome " + email,
             icon: "success",
             confirmButtonText: "OK",
         });
 
-    }
-    catch (error) {
+        // ✅ Redirect to admin dashboard
+
+    } catch (error) {
         console.log(error.message);
         Swal.fire({
             title: "❌ Error!",
@@ -47,6 +109,7 @@ const register = async (ele) => {
             confirmButtonText: "Try Again",
         });
     }
+
 }
 
 document.getElementById('signUpBtn')?.addEventListener('click', register)
@@ -98,26 +161,48 @@ const login = async (ele) => {
 
 
 
-
-
     try {
-        let userLogin = await signInWithEmailAndPassword(
-            auth,
-            email,
-            password)
-        const user = userLogin.user;
-        console.log(user);
+        let userLogin = await signInWithEmailAndPassword(auth, email, password);
+        let user = userLogin.user;
 
-        Swal.fire({
-            title: "✅ Login Successful!",
-            text: "Welcome back ! " + email,
-            icon: "success",
-            confirmButtonText: "OK",
-        });
+        // Firestore se admin check karna
+        const adminRef = doc(db, "admins", "adminInfo"); // Fixed document
+        const adminDoc = await getDoc(adminRef);
 
+        if (adminDoc.exists()) {
+            const adminData = adminDoc.data();
 
-    }
-    catch (error) {
+            if (adminData.uid === user.uid) {
+                Swal.fire({
+                    title: "✅ Admin Login Successful!",
+                    text: "Welcome Admin " + email,
+                    icon: "success",
+                    confirmButtonText: "OK",
+                });
+
+                // ✅ Redirect to Admin Dashboard
+                window.location.href = "/asset/html/adminDashboard.html";
+            } else {
+                Swal.fire({
+                    title: "❌ Access Denied!",
+                    text: "You are not an admin.",
+                    icon: "error",
+                    confirmButtonText: "OK",
+                });
+
+                // ✅ Logout non-admin users
+                await signOut(auth);
+            }
+        } else {
+            Swal.fire({
+                title: "❌ Admin Not Found!",
+                text: "No admin is registered.",
+                icon: "error",
+                confirmButtonText: "OK",
+            });
+        }
+
+    } catch (error) {
         console.log(error.message);
         Swal.fire({
             title: "❌ Login Failed!",
@@ -125,9 +210,38 @@ const login = async (ele) => {
             icon: "error",
             confirmButtonText: "Try Again",
         });
-
     }
 }
+
+//     try {
+//         let userLogin = await signInWithEmailAndPassword(
+//             auth,
+//             email,
+//             password)
+//         const user = userLogin.user;
+//         console.log(user);
+
+
+//         Swal.fire({
+//             title: "✅ Login Successful!",
+//             text: "Welcome back ! " + email,
+//             icon: "success",
+//             confirmButtonText: "OK",
+//         });
+
+
+//     }
+//     catch (error) {
+//         console.log(error.message);
+//         Swal.fire({
+//             title: "❌ Login Failed!",
+//             text: error.message,
+//             icon: "error",
+//             confirmButtonText: "Try Again",
+//         });
+
+//     }
+// }
 
 document.getElementById('loginBtn')?.addEventListener('click', login);
 

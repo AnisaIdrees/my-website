@@ -7,10 +7,24 @@ import {
    signInWithPopup,
    signOut,
    onAuthStateChanged,
-   sendPasswordResetEmail 
+   sendPasswordResetEmail,
+
 } from 'https://www.gstatic.com/firebasejs/11.3.1/firebase-auth.js'
 
-
+// firestore
+import {
+   getFirestore,
+   doc,
+   setDoc,
+   getDoc,
+   collection,
+   getDocs,
+   onSnapshot,
+   updateDoc,
+   addDoc,
+   serverTimestamp,
+   query, orderBy, where, deleteDoc
+} from "https://www.gstatic.com/firebasejs/11.3.1/firebase-firestore.js";
 
 
 
@@ -26,6 +40,7 @@ const firebaseConfig = {
 // Initialized app
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
+const db = getFirestore(app);
 
 
 export {
@@ -36,5 +51,15 @@ export {
    signInWithPopup,
    signOut,
    onAuthStateChanged,
-   sendPasswordResetEmail 
+   sendPasswordResetEmail,
+   db,
+   getDoc,
+   setDoc,
+   doc, collection,
+   getDocs,
+   onSnapshot,
+   updateDoc,
+   addDoc,
+   serverTimestamp,
+   query, orderBy, where, deleteDoc
 }

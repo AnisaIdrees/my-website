@@ -26,13 +26,16 @@ menuicn.addEventListener("click", () => {
 
 
 import {
+  auth,
   db,
   query,
   collection,
   onSnapshot,
   doc,
   deleteDoc,
-  updateDoc
+  updateDoc,
+  signOut,
+  
 }
   from "./firebase.configure.js"
 
@@ -160,3 +163,108 @@ window.deleteUser = async (id) => {
 };
 
 getAllUsers();
+/////////////////////////////////////// logout//////////////////////////////////////
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+document.getElementById("signOut")?.addEventListener("click", async () => {
+  try {
+      const result = await Swal.fire({
+          title: "Are you sure?",
+          text: "You will be logged out!",
+          icon: "warning",
+          showCancelButton: true,
+          confirmButtonColor: "#d33",
+          cancelButtonColor: "#3085d6",
+          confirmButtonText: "Yes, Logout",
+          cancelButtonText: "Cancel"
+      });
+
+      if (result.isConfirmed) {
+          await signOut(auth);
+          Swal.fire("Logged Out!", "You have been logged out successfully.", "success");
+          console.log("Logout hogya!");
+          
+          // Redirect agar zaroori ho toh
+          window.location.href = "/index.html";
+      }
+  } catch (error) {
+      Swal.fire("Error!", "Logout nahi hua. Please try again.", "error");
+      console.log("Logout nahiiiiii hua!", error);
+  }
+});
+
+
+// //////////////// graph///////////////////////////////
+const chartOptions = {
+  responsive: true,
+  maintainAspectRatio: false,
+  animation: {
+      duration: 2000,
+      easing: 'easeInOutBounce'
+  }
+};
+
+let barCtx = document.getElementById("barChart").getContext("2d");
+new Chart(barCtx, {
+  type: "bar",
+  data: {
+      labels: ["Pizza", "Pasta", "Burger", "Sushi", "Tacos"],
+      datasets: [{
+          label: "Favorites",
+          data: [50, 40, 30, 20, 35],
+          backgroundColor: ["#ff6384", "#36a2eb", "#ffce56", "#4bc0c0", "#9966ff"],
+          borderRadius: 8
+      }]
+  },
+  options: {
+      ...chartOptions,
+      scales: { y: { beginAtZero: true } }
+  }
+});
+
+let pieCtx = document.getElementById("pieChart").getContext("2d");
+new Chart(pieCtx, {
+  type: "doughnut",
+  data: {
+      labels: ["Pizza", "Pasta", "Burger", "Sushi", "Tacos"],
+      datasets: [{
+          label: "Favorite Distribution",
+          data: [50, 40, 30, 20, 35],
+          backgroundColor: ["#ff6384", "#36a2eb", "#ffce56", "#4bc0c0", "#9966ff"],
+          hoverOffset: 8
+      }]
+  },
+  options: chartOptions
+});
+
+let lineCtx = document.getElementById("lineChart").getContext("2d");
+new Chart(lineCtx, {
+  type: "line",
+  data: {
+      labels: ["Jan", "Feb", "Mar", "Apr", "May"],
+      datasets: [{
+          label: "User Engagement",
+          data: [5, 15, 25, 40, 60],
+          borderColor: "#36a2eb",
+          backgroundColor: "rgba(54, 162, 235, 0.3)",
+          fill: true,
+          tension: 0.4
+      }]
+  },
+  options: chartOptions
+});

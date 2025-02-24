@@ -150,8 +150,8 @@ header {
   top: 8px;
 }
 .dp {
-  height: 40px;
-  width: 40px;
+  height: 50px;
+  width: 50px;
   background-color: #626262;
   border-radius: 50%;
   display: flex;
@@ -324,7 +324,7 @@ header {
   margin: 70px auto 0px auto;
   background-color: #ffffff;
   border-radius: 30px;
-  box-shadow: 3px 3px 10px rgba(238, 139, 59, 0.87);
+  box-shadow: 3px 3px 10px rgba(238, 140, 59, 0.664);
   padding: 0px 20px 20px 20px;
 }
 .report-header {

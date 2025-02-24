@@ -71,7 +71,7 @@ const register = async (ele) => {
 
         if (adminDoc.exists()) {
             Swal.fire({
-                title: "❌ Admin Already Exists!",
+                title: " Admin Already Exists!",
                 text: "Only one admin is allowed.",
                 icon: "error",
                 confirmButtonText: "OK",
@@ -89,10 +89,10 @@ const register = async (ele) => {
             role: "admin",
         });
 
-        console.log("✅ Admin Registered:", user.uid);
+        console.log(" Admin Registered:", user.uid);
 
         Swal.fire({
-            title: "🎉 Admin Sign-Up Successful!",
+            title: " Admin Sign-Up Successful!",
             text: "Welcome " + email,
             icon: "success",
             confirmButtonText: "OK",
